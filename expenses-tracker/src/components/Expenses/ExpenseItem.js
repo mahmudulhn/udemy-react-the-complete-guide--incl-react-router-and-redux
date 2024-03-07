@@ -10,7 +10,13 @@ const ExpenseItem = (props) => {
     // const expenseAmount = 294.67;
     // const month = props.date.toLocaleString('en-US', { month: 'long' });
     // const day = props.date.toLocaleString('en-US', { day: '2-digit' });
-    // const year = props.date.getFullYear();
+    // // const year = props.date.getFullYear();
+    // const [title, setTitle] = useState(props.title);
+
+    // const clickHandler = () => {
+    //     setTitle('Updated');
+    //     // title = 'Updated';
+    // };
     return (
         <Card className='expense-item'>
             <ExpenseDate date={props.date} />
