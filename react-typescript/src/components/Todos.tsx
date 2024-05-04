@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const Todos: React.FC<{ items: string[] }> = (props) => {
+import TodoItem from './TodoItem';
+import classes from './Todos.module.css';
+import { TodoContext } from '../store/todos-context';
+
+const Todos: React.FC = () => {
+  const todosCtx = useContext(TodoContext);
+
   return (
-    <ul>
-      {props.items.map((item) => (
-        <li key={item}>{item}</li>
+    <ul className={classes.todos}>
+      {todosCtx.items.map((item) => (
+        <TodoItem
+          key={item.id}
+          text={item.text}
+          onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)}
+        />
       ))}
     </ul>
   );
